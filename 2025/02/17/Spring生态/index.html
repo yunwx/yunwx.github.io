@@ -1,0 +1,814 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="yunwx">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="##一、Spring Boot 1. 核心注解 @Component: 标记一个类为 Spring 容器管理的组件，通用的注解。 @Service: 标记一个类为服务层组件，通常用于业务逻辑层。 @Repository: 标记一个类为数据访问层组件，通常用于 DAO 层。 @Controller: 标记一个类为控制器组件，通常用于 MVC 模式中的控制器。 @RestController: 结合了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring生态">
+<meta property="og:url" content="http://example.com/2025/02/17/Spring%E7%94%9F%E6%80%81/index.html">
+<meta property="og:site_name" content="不负雲往">
+<meta property="og:description" content="##一、Spring Boot 1. 核心注解 @Component: 标记一个类为 Spring 容器管理的组件，通用的注解。 @Service: 标记一个类为服务层组件，通常用于业务逻辑层。 @Repository: 标记一个类为数据访问层组件，通常用于 DAO 层。 @Controller: 标记一个类为控制器组件，通常用于 MVC 模式中的控制器。 @RestController: 结合了">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-17T06:09:41.000Z">
+<meta property="article:modified_time" content="2025-03-27T06:47:17.325Z">
+<meta property="article:author" content="yunwx">
+<meta property="article:tag" content="Spring">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Spring生态 - 不负雲往</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"1BLm6Kk8MHf9yRQs8CfieRl9-gzGzoHsz","app_key":"QtdZ4A7d3KY5o6TdNypadrK3","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>不负雲往</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Spring生态"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-17 14:09" pubdate>
+          2025年2月17日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Spring生态</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>##一、Spring Boot</p>
+<h3 id="1-核心注解"><a href="#1-核心注解" class="headerlink" title="1. 核心注解"></a>1. 核心注解</h3><ul>
+<li>@Component: 标记一个类为 Spring 容器管理的组件，通用的注解。</li>
+<li>@Service: 标记一个类为服务层组件，通常用于业务逻辑层。</li>
+<li>@Repository: 标记一个类为数据访问层组件，通常用于 DAO 层。</li>
+<li>@Controller: 标记一个类为控制器组件，通常用于 MVC 模式中的控制器。</li>
+<li>@RestController: 结合了 @Controller 和 @ResponseBody，用于 RESTful Web 服务。</li>
+</ul>
+<h3 id="2-依赖注入"><a href="#2-依赖注入" class="headerlink" title="2. 依赖注入"></a>2. 依赖注入</h3><ul>
+<li>@Autowired: 自动注入依赖，可以用于字段、构造器或方法。</li>
+<li>@Qualifier: 与 @Autowired 一起使用，指定要注入的 bean 的名称。</li>
+<li>@Resource: 类似于 @Autowired，但按名称注入。</li>
+<li>@Value: 注入属性值，通常用于从配置文件中读取值。</li>
+</ul>
+<h3 id="3-配置"><a href="#3-配置" class="headerlink" title="3. 配置"></a>3. 配置</h3><ul>
+<li>@Configuration: 标记一个类为配置类，通常与 @Bean 一起使用。</li>
+<li>@Bean: 标记一个方法返回的对象为 Spring 容器管理的 bean。</li>
+<li>@ComponentScan: 指定 Spring 扫描组件的包路径。</li>
+<li>@PropertySource: 指定属性文件的位置，用于加载配置。</li>
+</ul>
+<h3 id="4-AOP（面向切面编程）"><a href="#4-AOP（面向切面编程）" class="headerlink" title="4. AOP（面向切面编程）"></a>4. AOP（面向切面编程）</h3><ul>
+<li>@Aspect: 标记一个类为切面类。</li>
+<li>@Before: 在目标方法执行前执行。</li>
+<li>@After: 在目标方法执行后执行，无论是否抛出异常。</li>
+<li>@AfterReturning: 在目标方法成功返回后执行。</li>
+<li>@AfterThrowing: 在目标方法抛出异常后执行。</li>
+<li>@Around: 环绕通知，可以在目标方法执行前后执行自定义逻辑。</li>
+</ul>
+<h3 id="5-事务管理"><a href="#5-事务管理" class="headerlink" title="5. 事务管理"></a>5. 事务管理</h3><ul>
+<li>@Transactional: 标记一个方法或类为事务性的，用于声明式事务管理。</li>
+</ul>
+<h2 id="二、Mybatis"><a href="#二、Mybatis" class="headerlink" title="二、Mybatis"></a>二、Mybatis</h2><h3 id="1-什么是MyBatis？"><a href="#1-什么是MyBatis？" class="headerlink" title="1. 什么是MyBatis？"></a>1. 什么是MyBatis？</h3><p>MyBatis是一个基于Java的持久层框架，它封装了JDBC操作，简化了数据库访问。MyBatis通过XML或注解将Java对象与SQL语句进行映射，开发者可以直接编写SQL语句，灵活地控制查询逻辑。</p>
+<h3 id="2-MyBatis的核心组件有哪些？"><a href="#2-MyBatis的核心组件有哪些？" class="headerlink" title="2. MyBatis的核心组件有哪些？"></a>2. MyBatis的核心组件有哪些？</h3><ul>
+<li>SqlSessionFactory：用于创建SqlSession的工厂类，是MyBatis的核心对象。</li>
+<li>SqlSession：表示一次数据库会话，用于执行SQL语句、获取Mapper接口。</li>
+<li>Mapper接口：定义了数据库操作的方法，MyBatis通过动态代理实现接口。</li>
+<li>Mapper XML文件：定义了SQL语句和结果映射规则。</li>
+<li>Configuration：包含了MyBatis的全局配置信息。</li>
+</ul>
+<h3 id="3-MyBatis中-和-的区别是什么？"><a href="#3-MyBatis中-和-的区别是什么？" class="headerlink" title="3. MyBatis中#{}和${}的区别是什么？"></a>3. MyBatis中#{}和${}的区别是什么？</h3><ul>
+<li>#{}：<ul>
+<li>是预编译占位符，MyBatis会将#{}替换为?，并通过PreparedStatement设置参数，防止SQL注入。</li>
+<li>适用于传递参数值。</li>
+</ul>
+</li>
+<li>${}：<ul>
+<li>是字符串替换，MyBatis会直接将${}替换为变量的值，存在SQL注入风险。</li>
+<li>适用于动态表名、列名等场景。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-MyBatis如何实现分页？"><a href="#4-MyBatis如何实现分页？" class="headerlink" title="4. MyBatis如何实现分页？"></a>4. MyBatis如何实现分页？</h3><ul>
+<li>逻辑分页：使用MyBatis的RowBounds对象，在内存中进行分页，适合数据量小的场景。</li>
+<li>物理分页：在SQL语句中使用LIMIT和OFFSET（MySQL）或ROWNUM（Oracle）实现分页。</li>
+<li>分页插件：使用PageHelper等分页插件，简化分页操作。</li>
+</ul>
+<h3 id="5-MyBatis的一级缓存和二级缓存有什么区别？"><a href="#5-MyBatis的一级缓存和二级缓存有什么区别？" class="headerlink" title="5. MyBatis的一级缓存和二级缓存有什么区别？"></a>5. MyBatis的一级缓存和二级缓存有什么区别？</h3><ul>
+<li>一级缓存：<ul>
+<li>默认开启，作用域为SqlSession级别。</li>
+<li>在同一个SqlSession中，相同的查询会直接从缓存中获取结果。</li>
+<li>当SqlSession关闭或执行增删改操作时，缓存会被清空。</li>
+</ul>
+</li>
+<li>二级缓存：<ul>
+<li>需要手动开启，作用域为Mapper级别（跨SqlSession）。</li>
+<li>多个SqlSession可以共享二级缓存。</li>
+<li>适合读取频繁、更新较少的场景。</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-MyBatis如何实现多表关联查询？"><a href="#6-MyBatis如何实现多表关联查询？" class="headerlink" title="6. MyBatis如何实现多表关联查询？"></a>6. MyBatis如何实现多表关联查询？</h3><ul>
+<li>嵌套查询：在主查询中通过&lt; association &gt;或&lt; collection &gt;标签嵌套子查询。</li>
+<li>嵌套结果：通过JOIN查询一次性获取所有数据，然后在结果映射中使用&lt; association &gt;或&lt; collection &gt;标签映射关联对象。</li>
+</ul>
+<h3 id="7-MyBatis的动态SQL有哪些标签？"><a href="#7-MyBatis的动态SQL有哪些标签？" class="headerlink" title="7. MyBatis的动态SQL有哪些标签？"></a>7. MyBatis的动态SQL有哪些标签？</h3><ul>
+<li>&lt; if &gt;： 条件判断。</li>
+<li>&lt; choose &gt;、&lt; when &gt;、&lt; otherwise &gt;： 多条件选择。</li>
+<li>&lt; where &gt;： 动态生成WHERE子句。</li>
+<li>&lt; set &gt;： 动态生成SET子句。</li>
+<li>&lt; foreach &gt;： 遍历集合，生成IN语句或批量操作。</li>
+<li>&lt; trim &gt;： 去除多余的字符（如AND、OR）。</li>
+</ul>
+<h3 id="8-MyBatis如何实现批量插入？"><a href="#8-MyBatis如何实现批量插入？" class="headerlink" title="8. MyBatis如何实现批量插入？"></a>8. MyBatis如何实现批量插入？</h3><ul>
+<li>使用&lt; foreach &gt;标签遍历集合，生成多条INSERT语句。</li>
+<li>使用SqlSession的batch方法实现批量操作。</li>
+</ul>
+<h3 id="9-MyBatis如何解决SQL注入问题？"><a href="#9-MyBatis如何解决SQL注入问题？" class="headerlink" title="9. MyBatis如何解决SQL注入问题？"></a>9. MyBatis如何解决SQL注入问题？</h3><ul>
+<li>使用#{}预编译占位符，避免直接拼接SQL。</li>
+<li>避免使用${}进行字符串替换，除非是动态表名、列名等场景。</li>
+<li>对用户输入进行严格的校验和过滤。</li>
+</ul>
+<h2 id="三、Spring-Cloud"><a href="#三、Spring-Cloud" class="headerlink" title="三、Spring Cloud"></a>三、Spring Cloud</h2><h3 id="1-服务注册与发现"><a href="#1-服务注册与发现" class="headerlink" title="1. 服务注册与发现"></a>1. 服务注册与发现</h3><ul>
+<li>@EnableEurekaClient: 启用 Eureka 客户端，将服务注册到 Eureka 服务器。</li>
+<li>@EnableDiscoveryClient: 启用服务发现客户端，适用于多种服务发现工具（如 Eureka、Consul、Zookeeper）。</li>
+<li>@LoadBalanced: 标记 RestTemplate 或 WebClient，使其具备负载均衡能力。</li>
+</ul>
+<h3 id="2-配置管理"><a href="#2-配置管理" class="headerlink" title="2. 配置管理"></a>2. 配置管理</h3><ul>
+<li>@EnableConfigServer: 启用配置服务器，集中管理微服务的配置。</li>
+<li>@RefreshScope: 标记 Bean，使其在配置更改时能够动态刷新。</li>
+</ul>
+<h3 id="3-API-网关"><a href="#3-API-网关" class="headerlink" title="3. API 网关"></a>3. API 网关</h3><ul>
+<li>@EnableZuulProxy: 启用 Zuul 代理，用于 API 网关路由和过滤。</li>
+<li>@EnableZuulServer: 启用 Zuul 服务器，提供基本的网关功能。</li>
+<li>@EnableGateway: 启用 Spring Cloud Gateway，提供更强大的 API 网关功能。</li>
+</ul>
+<h3 id="4-熔断器与限流"><a href="#4-熔断器与限流" class="headerlink" title="4. 熔断器与限流"></a>4. 熔断器与限流</h3><ul>
+<li>@EnableHystrix: 启用 Hystrix 熔断器，提供容错和延迟容忍能力。</li>
+<li>@HystrixCommand: 标记方法，使其具备熔断器功能。</li>
+<li>@EnableCircuitBreaker: 启用熔断器功能，适用于多种熔断器实现（如 Hystrix、Resilience4j）。</li>
+<li>@SentinelResource: 标记方法，使其具备 Sentinel 的限流和熔断功能。</li>
+</ul>
+<h3 id="5-分布式追踪"><a href="#5-分布式追踪" class="headerlink" title="5. 分布式追踪"></a>5. 分布式追踪</h3><ul>
+<li>@EnableSleuth: 启用 Sleuth，提供分布式追踪功能。</li>
+<li>@NewSpan: 标记方法，使其在追踪中创建一个新的 Span。</li>
+</ul>
+<h3 id="6-消息驱动"><a href="#6-消息驱动" class="headerlink" title="6. 消息驱动"></a>6. 消息驱动</h3><ul>
+<li>@EnableBinding: 启用消息绑定，将应用程序与消息中间件（如 Kafka、RabbitMQ）连接。</li>
+<li>@StreamListener: 标记方法，使其监听消息通道中的消息。</li>
+</ul>
+<h2 id="四、Spring-Security"><a href="#四、Spring-Security" class="headerlink" title="四、Spring Security"></a>四、Spring Security</h2><h3 id="1-EnableWebSecurity"><a href="#1-EnableWebSecurity" class="headerlink" title="1.@EnableWebSecurity"></a>1.@EnableWebSecurity</h3><ul>
+<li>启用 Spring Security 的 Web 安全支持。</li>
+<li>通常用于配置类上，表示该类是 Spring Security 的配置类。</li>
+</ul>
+<h3 id="2-PreAuthorize"><a href="#2-PreAuthorize" class="headerlink" title="2.@PreAuthorize"></a>2.@PreAuthorize</h3><ul>
+<li>在方法执行前进行权限检查。</li>
+<li>支持 SpEL（Spring Expression Language）表达式。</li>
+</ul>
+<h3 id="3-Secured"><a href="#3-Secured" class="headerlink" title="3.@Secured"></a>3.@Secured</h3><ul>
+<li>用于指定方法所需的角色。</li>
+<li>不支持 SpEL，仅支持简单的角色名称。</li>
+</ul>
+<h3 id="4-WithAnonymousUser"><a href="#4-WithAnonymousUser" class="headerlink" title="4.@WithAnonymousUser"></a>4.@WithAnonymousUser</h3><ul>
+<li>用于测试，模拟匿名用户。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Spring/" class="print-no-link">#Spring</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Spring生态</div>
+      <div>http://example.com/2025/02/17/Spring生态/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>yunwx</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/01/12/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" title="MySQL数据库基础">
+                        <span class="hidden-mobile">MySQL数据库基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"1BLm6Kk8MHf9yRQs8CfieRl9-gzGzoHsz","appKey":"QtdZ4A7d3KY5o6TdNypadrK3","path":"window.location.pathname","placeholder":"说点什么...","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>zdq</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>zys</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
