@@ -27,7 +27,7 @@
 <meta property="og:description" content="1.常见的HTTP请求头和响应头及其作用 常见请求头（Request Headers） Host：指定请求的服务器域名和端口 User-Agent：客户端浏览器或应用标识 Accept：声明客户端可接收的响应数据类型（如 text&#x2F;html） Content-Type：请求体的数据类型（如 application&#x2F;json） Cookie：携带服务器设置的Cookie信息 Au">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-10T05:34:58.000Z">
-<meta property="article:modified_time" content="2025-03-31T05:51:34.144Z">
+<meta property="article:modified_time" content="2025-03-31T11:00:12.827Z">
 <meta property="article:author" content="yunwx">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary_large_image">
@@ -348,7 +348,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();<br>xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-string">&quot;https://api.example.com/data&quot;</span>, <span class="hljs-literal">true</span>); <span class="hljs-comment">// 异步请求</span><br>xhr.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">if</span> (xhr.<span class="hljs-property">readyState</span> === <span class="hljs-number">4</span> &amp;&amp; xhr.<span class="hljs-property">status</span> === <span class="hljs-number">200</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(xhr.<span class="hljs-property">responseText</span>)); <span class="hljs-comment">// 解析响应数据</span><br>  &#125;<br>&#125;;<br>xhr.<span class="hljs-title function_">send</span>();<br></code></pre></td></tr></table></figure>
 
 <p>(2) 现代方式(Fetch API)：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sas"><span class="hljs-meta">fetch</span>(<span class="hljs-string">&quot;https://api.example.com/data&quot;</span>)<br>.the<span class="hljs-meta">n</span>(response =&gt; response.jso<span class="hljs-meta">n</span>())<br>.the<span class="hljs-meta">n</span>(data =&gt; console.<span class="hljs-meta">log</span>(data))<br>.catch(<span class="hljs-keyword">error</span> =&gt; console.<span class="hljs-keyword">error</span>(<span class="hljs-keyword">error</span>));<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;https://api.example.com/data&quot;</span>)<br>.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.<span class="hljs-title function_">json</span>())<br>.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data))<br>.<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error));<br></code></pre></td></tr></table></figure>
 
 <h3 id="5-HTML5新特性"><a href="#5-HTML5新特性" class="headerlink" title="5.HTML5新特性"></a>5.HTML5新特性</h3><ul>
 <li>语义化标签：&lt; header &gt;, &lt; footer &gt;, &lt; article &gt;, &lt; section &gt;</li>
@@ -368,10 +368,10 @@
 <h3 id="8-正则表达式验证邮箱"><a href="#8-正则表达式验证邮箱" class="headerlink" title="8.正则表达式验证邮箱"></a>8.正则表达式验证邮箱</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> emailRegex = <span class="hljs-regexp">/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]&#123;2,&#125;$/</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(emailRegex.<span class="hljs-title function_">test</span>(<span class="hljs-string">&quot;test@example.com&quot;</span>)); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="9-Jsoup-CSS选择器-vs-XPath"><a href="#9-Jsoup-CSS选择器-vs-XPath" class="headerlink" title="9.Jsoup CSS选择器 vs XPath"></a>9.Jsoup CSS选择器 vs XPath</h3><p>(1) Jsoup CSS选择器示例：</p>
-<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scilab">Elements links = doc.<span class="hljs-keyword">select</span>(<span class="hljs-string">&quot;a[href]&quot;</span>); <span class="hljs-comment">// 获取所有带href的&lt;a&gt;标签</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Elements</span> <span class="hljs-variable">links</span> <span class="hljs-operator">=</span> doc.select(<span class="hljs-string">&quot;a[href]&quot;</span>); <span class="hljs-comment">// 获取所有带href的&lt;a&gt;标签</span><br></code></pre></td></tr></table></figure>
 
 <p>(2) XPath示例（需结合其他库如Jsoup+XPath）：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">//<span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[@href]</span>  # 获取所有带href的&lt;<span class="hljs-selector-tag">a</span>&gt;标签<br></code></pre></td></tr></table></figure>
+<figure class="highlight xpath"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xpath">//a[@href]  # 获取所有带href的<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span>&gt;</span>标签</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>区别：</strong></p>
 <ul>
@@ -497,6 +497,12 @@
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2024/11/29/Java%E5%9F%BA%E7%A1%80/" title="Java基础">
+                        <span class="hidden-mobile">Java基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
