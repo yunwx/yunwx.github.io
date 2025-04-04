@@ -1,0 +1,912 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="yunwx">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1.简介： Vue是渐进式JavaScript框架，基于标准HTML、CSS和JavaScript构建，并提供了一套声明式、组件化的编程模型。  2.准备： 引入Vue模块（官方提供）  123&lt;script type&#x3D;&quot;module&quot;&gt;    import &#123; createApp &#125; from &#x27;https:&#x2F;&#x2F;unpkg.com&#x2F;v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue学习笔记">
+<meta property="og:url" content="http://example.com/2025/02/12/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="不负雲往">
+<meta property="og:description" content="1.简介： Vue是渐进式JavaScript框架，基于标准HTML、CSS和JavaScript构建，并提供了一套声明式、组件化的编程模型。  2.准备： 引入Vue模块（官方提供）  123&lt;script type&#x3D;&quot;module&quot;&gt;    import &#123; createApp &#125; from &#x27;https:&#x2F;&#x2F;unpkg.com&#x2F;v">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2025/02/12/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1.jpg">
+<meta property="article:published_time" content="2025-02-12T07:47:22.000Z">
+<meta property="article:modified_time" content="2025-04-04T08:23:57.629Z">
+<meta property="article:author" content="yunwx">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Ajax">
+<meta property="article:tag" content="Axios">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2025/02/12/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1.jpg">
+  
+  
+  
+  <title>Vue学习笔记 - 不负雲往</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"1BLm6Kk8MHf9yRQs8CfieRl9-gzGzoHsz","app_key":"QtdZ4A7d3KY5o6TdNypadrK3","server_url":"https://1blm6kk8.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>不负雲往</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Text.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Vue学习笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-12 15:47" pubdate>
+          2025年2月12日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Vue学习笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="1-简介："><a href="#1-简介：" class="headerlink" title="1.简介："></a>1.简介：</h3><ul>
+<li>Vue是渐进式JavaScript框架，基于标准HTML、CSS和JavaScript构建，并提供了一套声明式、组件化的编程模型。</li>
+</ul>
+<h3 id="2-准备："><a href="#2-准备：" class="headerlink" title="2.准备："></a>2.准备：</h3><ul>
+<li>引入Vue模块（官方提供）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script type=&quot;module&quot;&gt;<br>    import &#123; createApp &#125; from &#x27;https://unpkg.com/vue@3/dist/vue.esm-browser.js&#x27;;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>创建Vue程序的应用实例，控制视图元素</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script type=&quot;module&quot;&gt;<br>    import &#123; createApp &#125; from &#x27;https://unpkg.com/vue@3/dist/vue.esm-browser.js&#x27;;<br>    createApp(&#123;<br>    <br>    &#125;);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>准备元素（div），被Vue控制（调用mount方法）</li>
+</ul>
+<div id="app">
+
+</div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script type=&quot;module&quot;&gt;<br>    import &#123; createApp &#125; from &#x27;https://unpkg.com/vue@3/dist/vue.esm-browser.js&#x27;;<br>    createApp(&#123;<br>    <br>    &#125;).mount(&quot;#app&quot;);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-数据驱动视图："><a href="#3-数据驱动视图：" class="headerlink" title="3.数据驱动视图："></a>3.数据驱动视图：</h3><ul>
+<li>准备数据</li>
+</ul>
+<div id="app">
+
+</div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script type=&quot;module&quot;&gt;<br>    import &#123; createApp &#125; from &#x27;https://unpkg.com/vue@3/dist/vue.esm-browser.js&#x27;;<br>    createApp(&#123;<br>        data()&#123;<br>            return&#123;<br>                message: &quot;Hello Vue&quot;            <br>            &#125;        <br>        &#125;<br>    &#125;).mount(&quot;#app&quot;);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>通过插值表达式渲染页面</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;div id=&quot;app&quot;&gt;<br>    &lt;h1&gt;&#123;&#123;message&#125;&#125;&lt;/h1&gt;<br>&lt;/div&gt;<br>&lt;script type=&quot;module&quot;&gt;<br>    import &#123; createApp &#125; from &#x27;https://unpkg.com/vue@3/dist/vue.esm-browser.js&#x27;;<br>    createApp(&#123;<br>        data()&#123;<br>            return&#123;<br>                message: &quot;Hello Vue&quot;            <br>            &#125;        <br>        &#125;<br>    &#125;).mount(&quot;#app&quot;);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p><span style="color:#FF6B6B">注：插值表达式不能出现在标签内部</span></p>
+<h3 id="4-常用指令："><a href="#4-常用指令：" class="headerlink" title="4.常用指令："></a>4.常用指令：</h3><ul>
+<li><p>v-for：列表渲染，遍历容器的元素或者对象的属性</p>
+<ul>
+<li>语法：<span style="color:#FF6B6B">v-for&#x3D;”(item,index) in items” :key&#x3D;”item.id”</span></li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;tr v-for=&quot;(item,index) in items&quot; :key=&quot;item.id&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/tr&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>参数说明：<ul>
+<li>items为遍历的数组</li>
+<li>item为遍历出来的元素</li>
+<li>index为索引&#x2F;下标，从0开始；可以省略，省略index语法：v-for&#x3D;”item in items”</li>
+</ul>
+</li>
+<li>key：<ul>
+<li>作用：给元素添加的唯一标识，便于vue进行列表项的正确排序复用，提升渲染性能</li>
+<li>推荐使用id作为key（唯一），不推荐使用index作为key（会变化，不对应）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><span style="color:#FF6B6B">注：遍历的数组必须在data中定义；要想让哪个标签循环展示多次，就在哪个标签上使用 v-for 指令</span></p>
+<ul>
+<li>v-bind：动态为HTML标签绑定属性值，如设置 href，css样式等<ul>
+<li>语法：<span style="color:#FF6B6B">v-bind:属性名&#x3D;”属性值”</span>，可简化为：<span style="color:#FF6B6B">:属性名&#x3D;”属性值”</span></li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;img v-bind:src=&quot;item.image&quot; width=&quot;30px&quot;&gt;<br>//简化<br>&lt;img :src=&quot;item.image&quot; width=&quot;30px&quot;&gt;<br></code></pre></td></tr></table></figure></li>
+<li>v-if &#x2F; v-else-if &#x2F; v-else：条件性的渲染某元素，判定为true时渲染，否则不渲染<ul>
+<li>语法：<span style="color:#FF6B6B">v-if&#x3D;”表达式”</span>，表达式值为true，显示；false，隐藏</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;span v-if=&quot;gender==1&quot;&gt;男生&lt;/span&gt;<br>&lt;span v-else-if=&quot;gender==2&quot;&gt;女生&lt;/span&gt;<br>&lt;span v-else&gt;未知&lt;/span&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>原理：基于条件判断来控制创建或移除元素节点（条件渲染）</li>
+<li>场景：要么显示，要么不显示，不频繁切换的场景</li>
+</ul>
+</li>
+</ul>
+<p><span style="color:#FF6B6B">注：v-else-if 必须出现在 v-if 之后，可以出现多个；v-else 必须出现在 v-if &#x2F; v-else-if 之后</span></p>
+<ul>
+<li>v-show：根据条件展示某元素，区别在于切换的是display属性的值<ul>
+<li>语法：<span style="color:#FF6B6B">v-show&#x3D;”表达式”</span>，表达式值为true，显示；false，隐藏</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;span v-show=&quot;gender==1&quot;&gt;男生&lt;/span&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>原理：基于CSS样式display来控制显示与隐藏</li>
+<li>场景：频繁切换显示隐藏的场景</li>
+</ul>
+</li>
+<li>v-model：在表单元素上创建双向数据绑定，可以方便的获取或设置表单项数据<ul>
+<li>语法：<span style="color:#FF6B6B">v-model&#x3D;”变量名”</span></li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;input type=&quot;text&quot; id=&quot;name&quot; v-model=&quot;searchForm.name&quot;&gt;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p><span style="color:#FF6B6B">注：v-model中绑定的变量必须在data中定义</span></p>
+<ul>
+<li>v-on：为HTML标签绑定事件（添加事件监听）<ul>
+<li>语法：<span style="color:#FF6B6B">v-on:事件名&#x3D;”方法名”</span>，可简化为：<span style="color:#FF6B6B">@事件名&#x3D;”方法名”</span></li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;div id=&quot;app&quot;&gt;<br>	&lt;button type=&quot;button&quot; v-on:click=&quot;handle&quot;&gt;点我&lt;/button&gt;<br>	&lt;button type=&quot;button&quot; @click=&quot;handle&quot;&gt;再点我&lt;/button&gt;<br>&lt;/div&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>在Vue中定义方法：</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs vue">const app = createApp(&#123;<br>	data()&#123;<br>		//...    <br>	&#125;,<br>	methods:&#123;<br>		handle()&#123;<br>			console.log(&#x27;试试就试试&#x27;);                    <br>		&#125;    <br>	&#125;<br>&#125;).mount(&quot;#app&quot;)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p><span style="color:#FF6B6B">注：methods属性中的this指向Vue实例，可以通过this获取到data中定义的数据</span></p>
+<h3 id="5-Ajax："><a href="#5-Ajax：" class="headerlink" title="5.Ajax："></a>5.Ajax：</h3><ul>
+<li>介绍：异步的JavaScript和XML</li>
+<li>XML：可扩展标记语言，本质是一种数据格式，可以用来存储复杂的数据结构</li>
+<li>作用：<ul>
+<li>数据交换：通过Ajax可以给服务器发送请求，并获取服务器响应的数据</li>
+<li>异步交互：可以在不重新加载整个页面的情况下，与服务器交换数据并更新部分网页的技术，如：搜索联想、用户名是否可用的校验等</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-Axios："><a href="#6-Axios：" class="headerlink" title="6.Axios："></a>6.Axios：</h3><ul>
+<li><p>介绍：Axios对原生的Ajax进行了封装，简化书写，快速开发</p>
+</li>
+<li><p>步骤：</p>
+<ul>
+<li>引入Axios的js文件（参考官网）</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>使用Axios发送请求，并获取响应结果<ul>
+<li>method：请求方式，GET&#x2F;POST</li>
+<li>url：请求路径</li>
+<li>data：请求数据（POST）</li>
+<li>params：发送请求时携带的url参数，如：…?key&#x3D;val</li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs vue">axios(&#123;<br>	method: &#x27;GET&#x27;,<br>	url: &#x27;https://web-server.itheima.net/emps/list&#x27;<br>&#125;).then((result) =&gt;&#123; //成功回调函数<br>	console.log(result.data);<br>&#125;).catch((err) =&gt;&#123; //失败回调函数<br>	alert(err);<br>&#125;);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>Axios-请求方式别名（推荐使用）：</p>
+<ul>
+<li>为了方便起见，Axios已经为所有支持的请求方法提供了别名</li>
+<li>格式：axios.请求方式(url [, data [, config]])</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs vue">//GET请求<br>axios.get(&#x27;https://mock.apifox.cn/mq/3083103-0-default/emps/list&#x27;).then((result) =&gt;&#123;<br>    console.log(result.data);<br>&#125;).catch((err) =&gt;&#123;<br>    console.log(err);<br>&#125;);<br>//POST请求<br>axios.post(&#x27;https://mock.apifox.cn/mq/3083103-0-default/emps/update&#x27;,&#x27;id=1&#x27;).then((result) =&gt;&#123;<br>    console.log(result.data);<br>&#125;).catch((err) =&gt;&#123;<br>    console.log(err);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="7-async-await"><a href="#7-async-await" class="headerlink" title="7.async &amp; await"></a>7.async &amp; await</h3><ul>
+<li>作用：可以通过async、await可以让异步变为同步操作。async就是来声明一个异步方法，await是用来等待异步任务执行（提高代码可读性和可维护性）</li>
+<li>语法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vue">methods:&#123;<br>    async search()&#123;<br>        let result = await axios.get(&#x27;https://web-server.itheima.net/emps/list?name=xxx&amp;gender=xxx&amp;job=xxx&#x27;);<br>        this.employees = result.data.data;    <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><span style="color:#FF6B6B">注：await关键字只在async函数内有效，await关键字取代then函数，等待获取到请求成功的结果值</span></p>
+<h3 id="8-Vue生命周期"><a href="#8-Vue生命周期" class="headerlink" title="8.Vue生命周期"></a>8.Vue生命周期</h3><ul>
+<li>生命周期：指一个对象从创建到销毁的整个过程</li>
+<li>生命周期的八个阶段：每触发一个生命周期事件，会自动执行一个生命周期方法（钩子）<ul>
+<li>beforeCreate：创建前</li>
+<li>created：创建后</li>
+<li>beforeMount：载入前</li>
+<li>mounted：挂载完成</li>
+<li>beforeUpdate：数据更新前</li>
+<li>updated：数据更新后</li>
+<li>beforeUnmount：组件销毁前</li>
+<li>unmounted：组件销毁后</li>
+</ul>
+</li>
+</ul>
+<img src="/2025/02/12/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1.jpg" srcset="/img/loading.gif" lazyload class="">
+
+<ul>
+<li>钩子函数使用：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script type=&quot;module&quot;&gt;<br>    import &#123; createApp &#125; from &#x27;https://.../vue.esm-browser.js&#x27;<br>    const app = createApp(&#123;<br>        data()&#123;<br>            return &#123;<br>                message:&quot;Hello Vue&quot;<br>            &#125;        <br>        &#125;,<br>        //生命周期-钩子函数 mounted<br>        mounted()&#123;<br>            console.log(&#x27;Vue挂载完毕，发送请求获取数据...&#x27;);        <br>        &#125;    <br>    &#125;).mount(&quot;#app&quot;);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p><span style="color:#FF6B6B">注：钩子函数与 data 或 methods 是齐平的</span></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Vue/" class="print-no-link">#Vue</a>
+      
+        <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
+      
+        <a href="/tags/Ajax/" class="print-no-link">#Ajax</a>
+      
+        <a href="/tags/Axios/" class="print-no-link">#Axios</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Vue学习笔记</div>
+      <div>http://example.com/2025/02/12/Vue学习笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>yunwx</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/02/17/Spring%E7%94%9F%E6%80%81/" title="Spring生态">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Spring生态</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/01/13/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" title="前端基础">
+                        <span class="hidden-mobile">前端基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"1BLm6Kk8MHf9yRQs8CfieRl9-gzGzoHsz","appKey":"QtdZ4A7d3KY5o6TdNypadrK3","path":"window.location.pathname","placeholder":"说点什么...","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <span>qq</span> <i class="iconfont icon-love"></i> <span>ss</span> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
