@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>知心APP</title>
+    <link href="/2025/03/05/%E7%9F%A5%E5%BF%83APP/"/>
+    <url>/2025/03/05/%E7%9F%A5%E5%BF%83APP/</url>
+    
+    <content type="html"><![CDATA[<h2 id="一、项目简介"><a href="#一、项目简介" class="headerlink" title="一、项目简介"></a>一、项目简介</h2><ul><li>知心APP是一个整合了智能推荐、社交互动与活动管理的平台，通过加入智能推荐算法，可以更加准确地实现将用户与感兴趣的好友和社交活动匹配。</li><li>基于HarmonyOS的ArkTs前端语言结合SDK框架实现客户端开发。</li><li>基于Java编程语言完成客户端和MySQL数据库的连接，实现服务端开发。</li></ul><h2 id="二、技术简介"><a href="#二、技术简介" class="headerlink" title="二、技术简介"></a>二、技术简介</h2><ul><li>ArkUI：是HarmonyOS的声明式 UI 开发框架，用于构建HarmonyOS应用的界面。它提供了一套现代化的 UI 开发方式，支持 TypeScript&#x2F;JavaScript（ArkTS&#x2F;JS）和C++（Native UI）两种开发范式。</li><li>ArkTS：是对TypeScript进行深度优化和功能扩展的一种开发语言，完美适配ArkUI框架，保留了TypeScript基础语法的同时增加了声明式UI编程范式和组件化开发能力。</li><li>Java Socket：是Java提供的一套基于TCP&#x2F;IP协议的网络通信API，允许不同主机上的应用程序通过字节流进行双向数据传输，适用于构建客户端-服务器（C&#x2F;S）架构的应用。</li><li>MySQL：是一个开源的关系型数据库管理系统，支持高并发访问。</li></ul><h2 id="三、功能展示"><a href="#三、功能展示" class="headerlink" title="三、功能展示"></a>三、功能展示</h2><ul><li><p><strong>注册与登录</strong></p><ul><li><p>注册时，前端将注册信息发送至后端，若用户名已被注册，前端会提示用户名已存在，若注册信息无误，后端会完成注册并返回成功信息，前端提示注册成功并自动跳转至登录页面。</p></li><li><p>登录时，前端会将输入的信息发送至后端，后端连接数据库查询用户信息。若信息匹配且账号状态正常，后端返回用户数据，前端接收数据并跳转至主页；若用户名或密码错误，后端返回错误信息，前端提示用户重新输入；若用户账号已被封禁，前端提示账号已被封禁。</p></li><li><p>首次登录时，需要填写自己的昵称、出生日期、兴趣，选择兴趣是为了能够更精准地推荐好友以及活动。</p>  <img src="/2025/03/05/%E7%9F%A5%E5%BF%83APP/%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95.gif" class=""></li></ul></li><li><p><strong>添加好友</strong></p><ul><li><p>通过搜索框输入目标用户的用户名进行搜索，系统会实时显示匹配的结果，找到目标用户后点击添加即可发送好友请求。</p></li><li><p>在通讯录界面的推荐区可以查看系统根据兴趣推荐的好友，点击推荐好友后可以查看其出生日期、兴趣等基本信息，并根据自己的意愿选择是否发送好友请求。</p>  <img src="/2025/03/05/%E7%9F%A5%E5%BF%83APP/%E6%B7%BB%E5%8A%A0%E5%A5%BD%E5%8F%8B.gif" class=""></li></ul></li><li><p><strong>聊天功能</strong></p><ul><li><p>首页会显示聊天记录列表，包括最近联系的好友及其最新的聊天内容摘要。点击某个好友的聊天记录，即可进入与该好友的聊天界面，进行实时对话，聊天记录也会实时更新。</p>  <img src="/2025/03/05/%E7%9F%A5%E5%BF%83APP/%E8%81%8A%E5%A4%A9%E5%8A%9F%E8%83%BD.gif" class=""></li></ul></li><li><p><strong>活动模块</strong></p><ul><li><p>推荐活动是根据用户的兴趣标签进行个性化推荐，热门活动则展示当前点赞数前三名的活动。</p></li><li><p>每个模块下方会显示对应类别活动的简略信息，用户点击后可以进入活动详情界面，查看更详细的信息。</p></li><li><p>活动详情界面可以点赞、评论和参加该活动。</p></li><li><p>创建活动时填写完活动信息并提交后会进入审核状态。</p></li><li><p>已报名和已创建的活动可以在“我的活动”页面中集中查看和管理。</p>  <img src="/2025/03/05/%E7%9F%A5%E5%BF%83APP/%E6%B4%BB%E5%8A%A8%E5%8A%9F%E8%83%BD.gif" class=""></li></ul></li><li><p><strong>个性化推荐</strong></p><ul><li><p>通过用户的标签推荐好友与活动。</p>  <img src="/2025/03/05/%E7%9F%A5%E5%BF%83APP/%E6%8E%A8%E8%8D%90%E5%8A%9F%E8%83%BD.gif" class=""></li></ul></li><li><p><strong>标签更新</strong></p><ul><li><p>采用动态标签机制。</p></li><li><p>用户标签由两部分构成：显式标签（用户自主选择）与隐式标签（系统根据用户行为自动生成）。</p>  <img src="/2025/03/05/%E7%9F%A5%E5%BF%83APP/%E6%A0%87%E7%AD%BE%E6%9B%B4%E6%96%B0.gif" class=""></li></ul></li><li><p><strong>退出登录</strong></p><ul><li><p>退出登录后前端清除本地缓存的用户信息，并自动跳转至登录页面。</p>  <img src="/2025/03/05/%E7%9F%A5%E5%BF%83APP/%E9%80%80%E5%87%BA%E7%99%BB%E5%BD%95.gif" class=""></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>HarmonyOS</tag>
+      
+      <tag>ArkTS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>全栈技术问题</title>
     <link href="/2025/02/23/%E5%85%A8%E6%A0%88%E6%8A%80%E6%9C%AF%E9%97%AE%E9%A2%98/"/>
     <url>/2025/02/23/%E5%85%A8%E6%A0%88%E6%8A%80%E6%9C%AF%E9%97%AE%E9%A2%98/</url>
@@ -20,9 +49,9 @@
     
     <tags>
       
-      <tag>MySQL</tag>
-      
       <tag>Java</tag>
+      
+      <tag>MySQL</tag>
       
       <tag>Vue</tag>
       
