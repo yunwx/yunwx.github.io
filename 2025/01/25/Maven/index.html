@@ -19,28 +19,28 @@
   <meta name="author" content="yunwx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.常见的HTTP请求头和响应头及其作用 常见请求头（Request Headers） Host：指定请求的服务器域名和端口 User-Agent：客户端浏览器或应用标识 Accept：声明客户端可接收的响应数据类型（如 text&#x2F;html） Content-Type：请求体的数据类型（如 application&#x2F;json） Cookie：携带服务器设置的Cookie信息 Au">
+    <meta name="description" content="1.介绍： Maven是一款用于管理和构建Java项目的工具，是apache旗下的一个开源项目 官网：http:&#x2F;&#x2F;maven.apache.org&#x2F;    仓库：用于存储资源，管理各种jar包 本地仓库：自己计算机上的一个目录 中央仓库：由Maven团队维护的，全球唯一的。仓库地址：https:&#x2F;&#x2F;repo1.maven.org&#x2F;maven2&#x2F; 远程仓库（私服）：一般由公司团队搭建的私有仓库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网络基础">
-<meta property="og:url" content="http://example.com/2025/01/10/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="Maven">
+<meta property="og:url" content="http://example.com/2025/01/25/Maven/index.html">
 <meta property="og:site_name" content="不负雲往">
-<meta property="og:description" content="1.常见的HTTP请求头和响应头及其作用 常见请求头（Request Headers） Host：指定请求的服务器域名和端口 User-Agent：客户端浏览器或应用标识 Accept：声明客户端可接收的响应数据类型（如 text&#x2F;html） Content-Type：请求体的数据类型（如 application&#x2F;json） Cookie：携带服务器设置的Cookie信息 Au">
+<meta property="og:description" content="1.介绍： Maven是一款用于管理和构建Java项目的工具，是apache旗下的一个开源项目 官网：http:&#x2F;&#x2F;maven.apache.org&#x2F;    仓库：用于存储资源，管理各种jar包 本地仓库：自己计算机上的一个目录 中央仓库：由Maven团队维护的，全球唯一的。仓库地址：https:&#x2F;&#x2F;repo1.maven.org&#x2F;maven2&#x2F; 远程仓库（私服）：一般由公司团队搭建的私有仓库">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-01-10T05:34:58.000Z">
-<meta property="article:modified_time" content="2025-04-06T08:12:07.381Z">
+<meta property="og:image" content="http://example.com/2025/01/25/Maven/1.jpg">
+<meta property="og:image" content="http://example.com/2025/01/25/Maven/2.jpg">
+<meta property="og:image" content="http://example.com/2025/01/25/Maven/3.jpg">
+<meta property="og:image" content="http://example.com/2025/01/25/Maven/4.jpg">
+<meta property="og:image" content="http://example.com/2025/01/25/Maven/5.jpg">
+<meta property="article:published_time" content="2025-01-25T14:59:17.000Z">
+<meta property="article:modified_time" content="2025-04-06T15:27:01.420Z">
 <meta property="article:author" content="yunwx">
-<meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="Ajax">
-<meta property="article:tag" content="MyBatis">
-<meta property="article:tag" content="HTTP">
-<meta property="article:tag" content="Jsoup">
-<meta property="article:tag" content="XPath">
-<meta property="article:tag" content="Hibernate">
+<meta property="article:tag" content="Maven">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2025/01/25/Maven/1.jpg">
   
   
   
-  <title>网络基础 - 不负雲往</title>
+  <title>Maven - 不负雲往</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -219,7 +219,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="网络基础"></span>
+            <span id="subtitle" data-typed-text="Maven"></span>
           
         </div>
 
@@ -230,8 +230,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-10 13:34" pubdate>
-          2025年1月10日 下午
+        <time datetime="2025-01-25 22:59" pubdate>
+          2025年1月25日 晚上
         </time>
       </span>
     
@@ -242,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          833 字
+          1.9k 字
         
       </span>
     
@@ -253,7 +253,7 @@
         
         
         
-          7 分钟
+          16 分钟
         
       </span>
     
@@ -299,108 +299,218 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">网络基础</h1>
+            <h1 id="seo-header">Maven</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="1-常见的HTTP请求头和响应头及其作用"><a href="#1-常见的HTTP请求头和响应头及其作用" class="headerlink" title="1.常见的HTTP请求头和响应头及其作用"></a>1.常见的HTTP请求头和响应头及其作用</h3><ul>
-<li>常见请求头（Request Headers）<ul>
-<li>Host：指定请求的服务器域名和端口</li>
-<li>User-Agent：客户端浏览器或应用标识</li>
-<li>Accept：声明客户端可接收的响应数据类型（如 text&#x2F;html）</li>
-<li>Content-Type：请求体的数据类型（如 application&#x2F;json）</li>
-<li>Cookie：携带服务器设置的Cookie信息</li>
-<li>Authorization：用于身份验证（如 Bearer token）</li>
+                <h2 id="1-介绍："><a href="#1-介绍：" class="headerlink" title="1.介绍："></a>1.介绍：</h2><ul>
+<li>Maven是一款用于管理和构建Java项目的工具，是apache旗下的一个开源项目</li>
+<li>官网：<a target="_blank" rel="noopener" href="http://maven.apache.org/">http://maven.apache.org/</a></li>
 </ul>
-</li>
-<li>常见响应头（Response Headers）<ul>
-<li>Content-Type：响应体的数据类型（如 application&#x2F;json）</li>
-<li>Set-Cookie：服务器向客户端设置Cookie</li>
-<li>Cache-Control：控制缓存策略（如 no-cache）</li>
-<li>Location：重定向目标URL（如 302 跳转）</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-Cookie和Session的区别"><a href="#2-Cookie和Session的区别" class="headerlink" title="2.Cookie和Session的区别"></a>2.Cookie和Session的区别</h3><ul>
-<li>Cookie<ul>
-<li>存储在客户端（浏览器）</li>
-<li>可设置过期时间</li>
-<li>大小受限（~4KB）</li>
-<li>可能被篡改（需加密）</li>
-</ul>
-</li>
-<li>Session<ul>
-<li>存储在服务器端</li>
-<li>默认基于会话（浏览器关闭失效）</li>
-<li>存储数据量更大</li>
-<li>更安全</li>
-</ul>
-</li>
-</ul>
-<p>Cookie工作原理：<br>(1) 服务器通过 Set-Cookie 响应头下发Cookie。<br>(2) 浏览器存储Cookie，后续请求自动携带 Cookie 请求头。<br>(3) 服务器读取Cookie进行身份验证或状态管理。</p>
-<h3 id="3-常见HTTP状态码"><a href="#3-常见HTTP状态码" class="headerlink" title="3.常见HTTP状态码"></a>3.常见HTTP状态码</h3><ul>
-<li>200 OK：请求成功</li>
-<li>301 Moved Permanently：永久重定向</li>
-<li>302 Found：临时重定向</li>
-<li>400 Bad Request：请求语法错误</li>
-<li>401 Unauthorized：未认证</li>
-<li>403 Forbidden：无权限访问</li>
-<li>404 Not Found：资源不存在</li>
-<li>500 Internal Server Error：服务器内部错误</li>
-</ul>
-<h3 id="4-Ajax请求及实现"><a href="#4-Ajax请求及实现" class="headerlink" title="4.Ajax请求及实现"></a>4.Ajax请求及实现</h3><p><strong>Ajax（Asynchronous JavaScript and XML） 是一种异步请求技术，无需刷新页面即可获取数据</strong>。</p>
-<p>示例：<br>(1) 原生JavaScript:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();<br>xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-string">&quot;https://api.example.com/data&quot;</span>, <span class="hljs-literal">true</span>); <span class="hljs-comment">// 异步请求</span><br>xhr.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">if</span> (xhr.<span class="hljs-property">readyState</span> === <span class="hljs-number">4</span> &amp;&amp; xhr.<span class="hljs-property">status</span> === <span class="hljs-number">200</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(xhr.<span class="hljs-property">responseText</span>)); <span class="hljs-comment">// 解析响应数据</span><br>  &#125;<br>&#125;;<br>xhr.<span class="hljs-title function_">send</span>();<br></code></pre></td></tr></table></figure>
-
-<p>(2) 现代方式(Fetch API)：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;https://api.example.com/data&quot;</span>)<br>.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.<span class="hljs-title function_">json</span>())<br>.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data))<br>.<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error));<br></code></pre></td></tr></table></figure>
-
-<h3 id="5-HTML5新特性"><a href="#5-HTML5新特性" class="headerlink" title="5.HTML5新特性"></a>5.HTML5新特性</h3><ul>
-<li>语义化标签：&lt; header &gt;, &lt; footer &gt;, &lt; article &gt;, &lt; section &gt;</li>
-<li>多媒体支持：&lt; video &gt;, &lt; audio &gt;</li>
-<li>本地存储：localStorage, sessionStorage</li>
-<li>Canvas&#x2F;SVG绘图：动态图形渲染</li>
-<li>Web Workers：多线程计算</li>
-</ul>
-<h3 id="6-JavaScript闭包"><a href="#6-JavaScript闭包" class="headerlink" title="6.JavaScript闭包"></a>6.JavaScript闭包</h3><p><strong>闭包（Closure） 是函数与其词法环境的组合，允许函数访问外部作用域的变量。</strong></p>
-<p>示例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">outer</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">inner</span>(<span class="hljs-params"></span>) &#123;<br>        count++;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(count);<br>    &#125;;<br>&#125;<br><span class="hljs-keyword">const</span> counter = <span class="hljs-title function_">outer</span>();<br><span class="hljs-title function_">counter</span>(); <span class="hljs-comment">// 1</span><br><span class="hljs-title function_">counter</span>(); <span class="hljs-comment">// 2</span><br></code></pre></td></tr></table></figure>
-<p><strong>作用： 封装私有变量、实现模块化。</strong></p>
-<h3 id="7-JSON数据格式"><a href="#7-JSON数据格式" class="headerlink" title="7.JSON数据格式"></a>7.JSON数据格式</h3><p><strong>JSON（JavaScript Object Notation） 是轻量级数据交换格式。</strong></p>
-<p>示例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> obj = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span> &#125;;<br><span class="hljs-keyword">const</span> jsonStr = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(obj); <span class="hljs-comment">// 转为JSON字符串</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(jsonStr); <span class="hljs-comment">// &#123;&quot;name&quot;:&quot;Alice&quot;,&quot;age&quot;:25&#125;</span><br><br><span class="hljs-keyword">const</span> parsedObj = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(jsonStr); <span class="hljs-comment">// 解析回对象</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(parsedObj.<span class="hljs-property">name</span>); <span class="hljs-comment">// Alice</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="8-正则表达式验证邮箱"><a href="#8-正则表达式验证邮箱" class="headerlink" title="8.正则表达式验证邮箱"></a>8.正则表达式验证邮箱</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> emailRegex = <span class="hljs-regexp">/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]&#123;2,&#125;$/</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(emailRegex.<span class="hljs-title function_">test</span>(<span class="hljs-string">&quot;test@example.com&quot;</span>)); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="9-Jsoup-CSS选择器-vs-XPath"><a href="#9-Jsoup-CSS选择器-vs-XPath" class="headerlink" title="9.Jsoup CSS选择器 vs XPath"></a>9.Jsoup CSS选择器 vs XPath</h3><p>(1) Jsoup CSS选择器示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Elements</span> <span class="hljs-variable">links</span> <span class="hljs-operator">=</span> doc.select(<span class="hljs-string">&quot;a[href]&quot;</span>); <span class="hljs-comment">// 获取所有带href的&lt;a&gt;标签</span><br></code></pre></td></tr></table></figure>
-
-<p>(2) XPath示例（需结合其他库如Jsoup+XPath）：</p>
-<figure class="highlight xpath"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xpath">//a[@href]  # 获取所有带href的<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span>&gt;</span>标签</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>区别：</strong></p>
+<img src="/2025/01/25/Maven/1.jpg" srcset="/img/loading.gif" lazyload class="">
 <ul>
-<li><strong>CSS选择器：更简洁，适合HTML解析。</strong></li>
-<li><strong>XPath：功能更强大，支持复杂路径查询。</strong></li>
+<li>仓库：用于存储资源，管理各种jar包<ul>
+<li>本地仓库：自己计算机上的一个目录</li>
+<li>中央仓库：由Maven团队维护的，全球唯一的。仓库地址：<a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/">https://repo1.maven.org/maven2/</a></li>
+<li>远程仓库（私服）：一般由公司团队搭建的私有仓库</li>
 </ul>
-<h3 id="10-WebMagic核心组件"><a href="#10-WebMagic核心组件" class="headerlink" title="10.WebMagic核心组件"></a>10.WebMagic核心组件</h3><ul>
-<li>Downloader：下载网页</li>
-<li>PageProcessor：解析页面（定义爬取逻辑）</li>
-<li>Scheduler：URL调度（去重、队列管理）</li>
-<li>Pipeline：数据存储（如存数据库）</li>
+<p>  <span style="color:#FF6B6B">注：查找依赖（jar）的顺序：本地仓库 -&gt; 远程仓库 -&gt; 中央仓库</span></p>
+</li>
 </ul>
-<h3 id="11-MyBatis-vs-Hibernate"><a href="#11-MyBatis-vs-Hibernate" class="headerlink" title="11.MyBatis vs Hibernate"></a>11.MyBatis vs Hibernate</h3><ul>
-<li>MyBatis<ul>
-<li>SQL手动编写</li>
-<li>更灵活，适合复杂查询</li>
-<li>基于XML&#x2F;注解</li>
+<h2 id="2-作用："><a href="#2-作用：" class="headerlink" title="2.作用："></a>2.作用：</h2><ul>
+<li>依赖管理：方便快捷的管理项目依赖的资源（jar包）</li>
+<li>项目构建：标准化的跨平台（Linux、windows、MacOS）的自动化项目构建方式</li>
+<li>统一项目结构：提供标准、统一的项目结构</li>
+</ul>
+<h2 id="3-安装："><a href="#3-安装：" class="headerlink" title="3.安装："></a>3.安装：</h2><p>（1）解压 apache-maven-3.9.4-bin.zip<br>（2）配置本地仓库：修改 conf&#x2F;settings.xml 中的&lt; localRepository &gt;为一个指定目录</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">localRepository</span>&gt;</span>目录路径<span class="hljs-tag">&lt;/<span class="hljs-name">localRepository</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>（3）配置阿里云私服：修改 conf&#x2F;settings.xml 中的&lt; mirrors &gt;标签，为其添加如下子标签：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>alimaven<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>aliyun maven<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>（4）配置环境变量：MAVEN_HOME 为maven的解压目录，并将其bin目录加入PATH环境变量</p>
+<h2 id="4-坐标："><a href="#4-坐标：" class="headerlink" title="4.坐标："></a>4.坐标：</h2><ul>
+<li>简介：<ul>
+<li>Maven 中的坐标是资源（jar）的唯一标识，通过该坐标可以唯一定位资源位置</li>
+<li>使用坐标来定义项目或引入项目中需要的依赖</li>
 </ul>
 </li>
-<li>Hibernate<ul>
-<li>自动生成SQL</li>
-<li>更自动化，适合简单CRUD</li>
-<li>基于JPA标准</li>
+<li>主要组成：<ul>
+<li>groupId：定义当前Maven项目隶属组织名称（通常是域名反写，如com.baidu）</li>
+<li>artifactId：定义当前Maven项目名称（通常是模块名称）</li>
+<li>version：定义当前项目版本号<ul>
+<li>SNAPSHOT：功能不稳定、尚处于开发中的版本，即快照版本</li>
+<li>RELEASE：功能趋于稳定、当前更新停止，可以用于发行的版本</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-导入Maven项目："><a href="#5-导入Maven项目：" class="headerlink" title="5.导入Maven项目："></a>5.导入Maven项目：</h2><ul>
+<li>建议将要导入的maven项目复制到你的项目目录下</li>
+<li>建议选择maven项目的pom.xml文件进行导入</li>
+</ul>
+<h2 id="6-依赖管理："><a href="#6-依赖管理：" class="headerlink" title="6.依赖管理："></a>6.依赖管理：</h2><ul>
+<li>依赖配置：<ul>
+<li>依赖：指当前项目运行所需要的jar包，一个项目中可以引入多个依赖</li>
+<li>配置：<ul>
+<li>在 pom.xml 中编写&lt; dependencies &gt;标签</li>
+<li>在&lt; dependencies &gt;标签中使用&lt; dependency &gt;引入坐标</li>
+<li>定义坐标的 groupId, artifactId, version</li>
+<li>点击刷新按钮，引入最新加入的坐标</li>
+</ul>
+</li>
+</ul>
+<p>  <span style="color:#FF6B6B">注：如果不知道依赖的坐标信息，可以到 <a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a> 中搜索</span></p>
+<ul>
+<li>排除依赖：<ul>
+<li>简介：指主动断开依赖的资源，被排除的资源无需指定版本</li>
+<li>配置：<ul>
+<li>&lt; dependency &gt;编写&lt; exclusions &gt;标签</li>
+<li>在&lt; exclusions &gt;标签中使用&lt; exclusion &gt;引入坐标</li>
+<li>定义坐标的 groupId, artifactId（无需指定版本）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>  <span style="color:#FF6B6B">注：一旦依赖配置变更了，需要重新加载；引入的依赖如果本地仓库不存在，需要联网下载</span></p>
+</li>
+<li>生命周期：<ul>
+<li>作用：为了对所有的maven项目构建过程进行抽象和统一</li>
+<li>三套相互独立的生命周期：<ul>
+<li>clean：清理工作</li>
+<li>default：核心工作：如：编译、测试、打包、安装、部署等</li>
+<li>site：生成报告、发布站点等</li>
+</ul>
+</li>
+<li>阶段<ul>
+<li>每套生命周期包含一些阶段（phase），阶段是有顺序的，后面的阶段依赖于前面的阶段</li>
+<li>重要阶段：<ul>
+<li>clean：移除上一次构建生成的文件</li>
+<li>compile：编译项目源代码</li>
+<li>test：使用合适的单元测试框架运行测试（junit）</li>
+<li>package：将编译后的文件打包，如：jar、war等</li>
+<li>install：安装项目到本地仓库</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>  <span style="color:#FF6B6B">注：在<span style="color:red">同一套</span>生命周期中，当运行后面的阶段时，前面的阶段都会运行</span></p>
+<ul>
+<li>执行指定生命周期的两种方式：<ul>
+<li>在idea中，右侧的maven工具栏，选中对应的生命周期，双击执行</li>
+<li>在命令行中，通过命令执行（如：mvn clean）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-测试："><a href="#7-测试：" class="headerlink" title="7.测试："></a>7.测试：</h2><ul>
+<li>作用：用来促进鉴定软件的正确性、完整性、安全性和质量的过程</li>
+<li>阶段划分：<ul>
+<li>单元测试：<ul>
+<li>介绍：对软件的基本组成单位进行测试，最小测试单位</li>
+<li>目的：检验软件基本组成单位的正确性</li>
+<li>测试人员：开发人员</li>
+</ul>
+</li>
+<li>集成测试：<ul>
+<li>介绍：将已分别通过测试的单元，按设计要求组合成系统或子系统，再进行的测试</li>
+<li>目的：检查单元之间的协作是否正确</li>
+<li>测试人员：开发人员</li>
+</ul>
+</li>
+<li>系统测试：<ul>
+<li>介绍：对已经集成好的软件系统进行彻底的测试</li>
+<li>目的：验证软件系统的正确性、性能是否满足指定的要求</li>
+<li>测试人员：测试人员</li>
+</ul>
+</li>
+<li>验收测试：<ul>
+<li>介绍：交付测试，是针对用户需求、业务流程进行的正式测试</li>
+<li>目的：验证软件系统是否满足验收标准</li>
+<li>测试人员：客户&#x2F;需求方</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>测试方法：<ul>
+<li>白盒测试：<ul>
+<li>清楚软件内部结构、代码逻辑</li>
+<li>用于验证代码、逻辑正确性</li>
+</ul>
+</li>
+<li>黑盒测试：<ul>
+<li>不清楚软件内部结构、代码逻辑</li>
+<li>用于验证软件功能、兼容性等方面</li>
+</ul>
+</li>
+<li>灰盒测试：<ul>
+<li>结合了白盒测试和黑盒测试的特点，既关注软件的内部结构又考虑外部表现（功能）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-单元测试："><a href="#8-单元测试：" class="headerlink" title="8.单元测试："></a>8.单元测试：</h2><ul>
+<li>介绍：针对最小的功能单元（方法），编写测试代码对其正确性进行测试</li>
+<li>JUnit：最流行的Java测试框架之一，提供了一些功能，方便程序进行单元测试</li>
+<li>main方法测试：<ul>
+<li>测试代码与源代码未分开，难维护</li>
+<li>一个方法测试失败，影响后面方法</li>
+<li>无法自动化测试，得到测试报告</li>
+</ul>
+</li>
+<li>JUnit单元测试：<ul>
+<li>测试代码与源代码分开，便于维护</li>
+<li>可根据需要进行自动化测试</li>
+<li>可自动分析测试结果，产出测试报告</li>
+</ul>
+</li>
+</ul>
+<p><span style="color:#FF6B6B">注：JUnit单元测试类名命名规范为：XxxxxTest【规范】；JUnit单元测试的方法必须声明为public void【规定】</span></p>
+<ul>
+<li>断言：<ul>
+<li>JUnit提供了一些辅助方法，用来帮我们确定被测试的方法是否按照预期的效果正常工作，这种方式称为断言</li>
+<li>单元测试方法运行不报错，不代表业务方法没问题</li>
+<li>通过断言可以检测方法运行结果是否和预期一致，从而判断业务方法的正确性</li>
+</ul>
+</li>
+</ul>
+<img src="/2025/01/25/Maven/2.jpg" srcset="/img/loading.gif" lazyload class="">
+<p><span style="color:#FF6B6B">注：上述方法形参中的最后一个参数msg表示错误提示信息，可以不指定（有对应的重载方法）</span></p>
+<ul>
+<li>常见注解：</li>
+</ul>
+<img src="/2025/01/25/Maven/3.jpg" srcset="/img/loading.gif" lazyload class="">
+<p><span style="color:#FF6B6B">注：通过@ParameterizedTest进行参数化测试时，需要@ValueSource进行参数设置，并且在单元测试方法上声明方法形参。如下所示：</span></p>
+<img src="/2025/01/25/Maven/4.jpg" srcset="/img/loading.gif" lazyload class="">
+<ul>
+<li>企业开发规范：<ul>
+<li>原则：编写测试方法时，要尽可能的覆盖业务方法中所有可能的情况（尤其是边界值）</li>
+</ul>
+</li>
+<li>依赖范围：<ul>
+<li>依赖的jar包默认情况下可以在任何地方使用。可以通过&lt; scope &gt;…&lt; &#x2F;scope &gt;设置其作用范围</li>
+</ul>
+  <img src="/2025/01/25/Maven/5.jpg" srcset="/img/loading.gif" lazyload class="">
+<ul>
+<li>作用范围：<ul>
+<li>主程序范围有效（main文件夹范围内）</li>
+<li>测试程序范围有效（test文件夹范围内）</li>
+<li>是否参与打包运行（package指令范围内）</li>
+</ul>
+</li>
+<li>常见取值：<ul>
+<li>compile（默认）：主程序、测试程序、打包（运行）都有效</li>
+<li>test：仅测试有效</li>
+<li>provided：主程序、测试程序有效</li>
+<li>runtime：测试程序、打包（运行）有效</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -422,7 +532,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BD%91%E7%BB%9C/" class="category-chain-item">网络</a>
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
   
   
 
@@ -437,19 +547,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
-      
-        <a href="/tags/Ajax/" class="print-no-link">#Ajax</a>
-      
-        <a href="/tags/MyBatis/" class="print-no-link">#MyBatis</a>
-      
-        <a href="/tags/HTTP/" class="print-no-link">#HTTP</a>
-      
-        <a href="/tags/Jsoup/" class="print-no-link">#Jsoup</a>
-      
-        <a href="/tags/XPath/" class="print-no-link">#XPath</a>
-      
-        <a href="/tags/Hibernate/" class="print-no-link">#Hibernate</a>
+        <a href="/tags/Maven/" class="print-no-link">#Maven</a>
       
     </div>
   
@@ -461,8 +559,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>网络基础</div>
-      <div>http://example.com/2025/01/10/网络基础/</div>
+      <div>Maven</div>
+      <div>http://example.com/2025/01/25/Maven/</div>
     </div>
     <div class="license-meta">
       
@@ -474,7 +572,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年1月10日</div>
+          <div>2025年1月25日</div>
         </div>
       
       
@@ -506,9 +604,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/12/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" title="MySQL数据库基础">
+                      <a href="/2025/02/12/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Vue学习笔记">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MySQL数据库基础</span>
+                        <span class="hidden-mobile">Vue学习笔记</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -516,8 +614,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/11/29/Java%E5%9F%BA%E7%A1%80/" title="Java基础">
-                        <span class="hidden-mobile">Java基础</span>
+                      <a href="/2025/01/13/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" title="前端基础">
+                        <span class="hidden-mobile">前端基础</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

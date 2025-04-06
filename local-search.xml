@@ -132,6 +132,31 @@
   
   
   <entry>
+    <title>Maven</title>
+    <link href="/2025/01/25/Maven/"/>
+    <url>/2025/01/25/Maven/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1-介绍："><a href="#1-介绍：" class="headerlink" title="1.介绍："></a>1.介绍：</h2><ul><li>Maven是一款用于管理和构建Java项目的工具，是apache旗下的一个开源项目</li><li>官网：<a href="http://maven.apache.org/">http://maven.apache.org/</a></li></ul><img src="/2025/01/25/Maven/1.jpg" class=""><ul><li>仓库：用于存储资源，管理各种jar包<ul><li>本地仓库：自己计算机上的一个目录</li><li>中央仓库：由Maven团队维护的，全球唯一的。仓库地址：<a href="https://repo1.maven.org/maven2/">https://repo1.maven.org/maven2/</a></li><li>远程仓库（私服）：一般由公司团队搭建的私有仓库</li></ul><p>  <span style="color:#FF6B6B">注：查找依赖（jar）的顺序：本地仓库 -&gt; 远程仓库 -&gt; 中央仓库</span></p></li></ul><h2 id="2-作用："><a href="#2-作用：" class="headerlink" title="2.作用："></a>2.作用：</h2><ul><li>依赖管理：方便快捷的管理项目依赖的资源（jar包）</li><li>项目构建：标准化的跨平台（Linux、windows、MacOS）的自动化项目构建方式</li><li>统一项目结构：提供标准、统一的项目结构</li></ul><h2 id="3-安装："><a href="#3-安装：" class="headerlink" title="3.安装："></a>3.安装：</h2><p>（1）解压 apache-maven-3.9.4-bin.zip<br>（2）配置本地仓库：修改 conf&#x2F;settings.xml 中的&lt; localRepository &gt;为一个指定目录</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">localRepository</span>&gt;</span>目录路径<span class="hljs-tag">&lt;/<span class="hljs-name">localRepository</span>&gt;</span><br></code></pre></td></tr></table></figure><p>（3）配置阿里云私服：修改 conf&#x2F;settings.xml 中的&lt; mirrors &gt;标签，为其添加如下子标签：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>alimaven<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>aliyun maven<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br></code></pre></td></tr></table></figure><p>（4）配置环境变量：MAVEN_HOME 为maven的解压目录，并将其bin目录加入PATH环境变量</p><h2 id="4-坐标："><a href="#4-坐标：" class="headerlink" title="4.坐标："></a>4.坐标：</h2><ul><li>简介：<ul><li>Maven 中的坐标是资源（jar）的唯一标识，通过该坐标可以唯一定位资源位置</li><li>使用坐标来定义项目或引入项目中需要的依赖</li></ul></li><li>主要组成：<ul><li>groupId：定义当前Maven项目隶属组织名称（通常是域名反写，如com.baidu）</li><li>artifactId：定义当前Maven项目名称（通常是模块名称）</li><li>version：定义当前项目版本号<ul><li>SNAPSHOT：功能不稳定、尚处于开发中的版本，即快照版本</li><li>RELEASE：功能趋于稳定、当前更新停止，可以用于发行的版本</li></ul></li></ul></li></ul><h2 id="5-导入Maven项目："><a href="#5-导入Maven项目：" class="headerlink" title="5.导入Maven项目："></a>5.导入Maven项目：</h2><ul><li>建议将要导入的maven项目复制到你的项目目录下</li><li>建议选择maven项目的pom.xml文件进行导入</li></ul><h2 id="6-依赖管理："><a href="#6-依赖管理：" class="headerlink" title="6.依赖管理："></a>6.依赖管理：</h2><ul><li>依赖配置：<ul><li>依赖：指当前项目运行所需要的jar包，一个项目中可以引入多个依赖</li><li>配置：<ul><li>在 pom.xml 中编写&lt; dependencies &gt;标签</li><li>在&lt; dependencies &gt;标签中使用&lt; dependency &gt;引入坐标</li><li>定义坐标的 groupId, artifactId, version</li><li>点击刷新按钮，引入最新加入的坐标</li></ul></li></ul><p>  <span style="color:#FF6B6B">注：如果不知道依赖的坐标信息，可以到 <a href="https://mvnrepository.com/">https://mvnrepository.com/</a> 中搜索</span></p><ul><li>排除依赖：<ul><li>简介：指主动断开依赖的资源，被排除的资源无需指定版本</li><li>配置：<ul><li>&lt; dependency &gt;编写&lt; exclusions &gt;标签</li><li>在&lt; exclusions &gt;标签中使用&lt; exclusion &gt;引入坐标</li><li>定义坐标的 groupId, artifactId（无需指定版本）</li></ul></li></ul></li></ul><p>  <span style="color:#FF6B6B">注：一旦依赖配置变更了，需要重新加载；引入的依赖如果本地仓库不存在，需要联网下载</span></p></li><li>生命周期：<ul><li>作用：为了对所有的maven项目构建过程进行抽象和统一</li><li>三套相互独立的生命周期：<ul><li>clean：清理工作</li><li>default：核心工作：如：编译、测试、打包、安装、部署等</li><li>site：生成报告、发布站点等</li></ul></li><li>阶段<ul><li>每套生命周期包含一些阶段（phase），阶段是有顺序的，后面的阶段依赖于前面的阶段</li><li>重要阶段：<ul><li>clean：移除上一次构建生成的文件</li><li>compile：编译项目源代码</li><li>test：使用合适的单元测试框架运行测试（junit）</li><li>package：将编译后的文件打包，如：jar、war等</li><li>install：安装项目到本地仓库</li></ul></li></ul></li></ul><p>  <span style="color:#FF6B6B">注：在<span style="color:red">同一套</span>生命周期中，当运行后面的阶段时，前面的阶段都会运行</span></p><ul><li>执行指定生命周期的两种方式：<ul><li>在idea中，右侧的maven工具栏，选中对应的生命周期，双击执行</li><li>在命令行中，通过命令执行（如：mvn clean）</li></ul></li></ul></li></ul><h2 id="7-测试："><a href="#7-测试：" class="headerlink" title="7.测试："></a>7.测试：</h2><ul><li>作用：用来促进鉴定软件的正确性、完整性、安全性和质量的过程</li><li>阶段划分：<ul><li>单元测试：<ul><li>介绍：对软件的基本组成单位进行测试，最小测试单位</li><li>目的：检验软件基本组成单位的正确性</li><li>测试人员：开发人员</li></ul></li><li>集成测试：<ul><li>介绍：将已分别通过测试的单元，按设计要求组合成系统或子系统，再进行的测试</li><li>目的：检查单元之间的协作是否正确</li><li>测试人员：开发人员</li></ul></li><li>系统测试：<ul><li>介绍：对已经集成好的软件系统进行彻底的测试</li><li>目的：验证软件系统的正确性、性能是否满足指定的要求</li><li>测试人员：测试人员</li></ul></li><li>验收测试：<ul><li>介绍：交付测试，是针对用户需求、业务流程进行的正式测试</li><li>目的：验证软件系统是否满足验收标准</li><li>测试人员：客户&#x2F;需求方</li></ul></li></ul></li><li>测试方法：<ul><li>白盒测试：<ul><li>清楚软件内部结构、代码逻辑</li><li>用于验证代码、逻辑正确性</li></ul></li><li>黑盒测试：<ul><li>不清楚软件内部结构、代码逻辑</li><li>用于验证软件功能、兼容性等方面</li></ul></li><li>灰盒测试：<ul><li>结合了白盒测试和黑盒测试的特点，既关注软件的内部结构又考虑外部表现（功能）</li></ul></li></ul></li></ul><h2 id="8-单元测试："><a href="#8-单元测试：" class="headerlink" title="8.单元测试："></a>8.单元测试：</h2><ul><li>介绍：针对最小的功能单元（方法），编写测试代码对其正确性进行测试</li><li>JUnit：最流行的Java测试框架之一，提供了一些功能，方便程序进行单元测试</li><li>main方法测试：<ul><li>测试代码与源代码未分开，难维护</li><li>一个方法测试失败，影响后面方法</li><li>无法自动化测试，得到测试报告</li></ul></li><li>JUnit单元测试：<ul><li>测试代码与源代码分开，便于维护</li><li>可根据需要进行自动化测试</li><li>可自动分析测试结果，产出测试报告</li></ul></li></ul><p><span style="color:#FF6B6B">注：JUnit单元测试类名命名规范为：XxxxxTest【规范】；JUnit单元测试的方法必须声明为public void【规定】</span></p><ul><li>断言：<ul><li>JUnit提供了一些辅助方法，用来帮我们确定被测试的方法是否按照预期的效果正常工作，这种方式称为断言</li><li>单元测试方法运行不报错，不代表业务方法没问题</li><li>通过断言可以检测方法运行结果是否和预期一致，从而判断业务方法的正确性</li></ul></li></ul><img src="/2025/01/25/Maven/2.jpg" class=""><p><span style="color:#FF6B6B">注：上述方法形参中的最后一个参数msg表示错误提示信息，可以不指定（有对应的重载方法）</span></p><ul><li>常见注解：</li></ul><img src="/2025/01/25/Maven/3.jpg" class=""><p><span style="color:#FF6B6B">注：通过@ParameterizedTest进行参数化测试时，需要@ValueSource进行参数设置，并且在单元测试方法上声明方法形参。如下所示：</span></p><img src="/2025/01/25/Maven/4.jpg" class=""><ul><li>企业开发规范：<ul><li>原则：编写测试方法时，要尽可能的覆盖业务方法中所有可能的情况（尤其是边界值）</li></ul></li><li>依赖范围：<ul><li>依赖的jar包默认情况下可以在任何地方使用。可以通过&lt; scope &gt;…&lt; &#x2F;scope &gt;设置其作用范围</li></ul>  <img src="/2025/01/25/Maven/5.jpg" class=""><ul><li>作用范围：<ul><li>主程序范围有效（main文件夹范围内）</li><li>测试程序范围有效（test文件夹范围内）</li><li>是否参与打包运行（package指令范围内）</li></ul></li><li>常见取值：<ul><li>compile（默认）：主程序、测试程序、打包（运行）都有效</li><li>test：仅测试有效</li><li>provided：主程序、测试程序有效</li><li>runtime：测试程序、打包（运行）有效</li></ul></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Maven</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>前端基础</title>
     <link href="/2025/01/13/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/"/>
     <url>/2025/01/13/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/</url>
@@ -202,7 +227,19 @@
     
     <tags>
       
-      <tag>网络</tag>
+      <tag>JavaScript</tag>
+      
+      <tag>Ajax</tag>
+      
+      <tag>MyBatis</tag>
+      
+      <tag>HTTP</tag>
+      
+      <tag>Jsoup</tag>
+      
+      <tag>XPath</tag>
+      
+      <tag>Hibernate</tag>
       
     </tags>
     
